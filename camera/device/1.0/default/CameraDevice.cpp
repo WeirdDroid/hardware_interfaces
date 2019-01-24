@@ -710,7 +710,8 @@ Return<Status> CameraDevice::open(const sp<ICameraDeviceCallback>& callback) {
     initHalPreviewWindow();
     mDeviceCallback = callback;
 #ifdef QTI_CAMERA_DEVICE
-    mQDeviceCallback = vendor::qti::hardware::camera::device::V1_0::IQCameraDeviceCallback::castFrom(callback);
+    mQDeviceCallback =
+        vendor::qti::hardware::camera::device::V1_0::IQCameraDeviceCallback::castFrom(callback);
     if(mQDeviceCallback == nullptr) {
         ALOGI("could not cast ICameraDeviceCallback to IQCameraDeviceCallback");
     }
